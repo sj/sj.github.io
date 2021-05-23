@@ -15,10 +15,10 @@
 # in the templates via {{ site.myvariable }}.
 title: Contemplations of an oblivious mind
 description: >- # this means to ignore newlines until "baseurl:"
-  I build security products at GitHub. I love data. In a previous life, I had
-  fun with graph algorithms, wrote a PhD thesis on probabilistic
-  data, and built paleolatitude.org. Sometimes I write
-  my thoughts down here.
+  <h1 style="color: #FFFFFF">I'm Bas</h1>I build security products at GitHub. I love data. In a previous life, I had
+  fun with <a href="/pwahstacktc">graph algorithms</a>, wrote a <a href="https://ora.ox.ac.uk/objects/uuid:91aa418d-536e-472d-9089-39bef5f62e62">PhD thesis on probabilistic
+  data</a>, and built <a href="http://paleolatitude.org">paleolatitude.org</a>. Every now and then I write
+  my thoughts down here, or write some <a href="https://github.com/sj">code on GitHub</a>.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sj.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bas_van_schaik
@@ -36,8 +36,6 @@ permalink:           pretty
 plugins:
   - jekyll-feed
   - jekyll-paginate
-
-version: latest
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
