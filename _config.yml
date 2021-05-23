@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   fun with graphs and transitive closures, wrote a PhD thesis on probabilistic
   data, and built paleolatitude.org. And a few other things. Sometimes I write
   my thoughts down here, but more often I don't.
-baseurl: "" # the subpath of your site, e.g. /blog
+  #baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sj.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bas_van_schaik
 github_username:  sj
