@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "SIGMOD 2011: A memory efficient reachability data structure through bit vector compression (PWAHStackTC)"
+permalink: /pwahstacktc
 tag: research
 tag: pwahstacktc
 ---
