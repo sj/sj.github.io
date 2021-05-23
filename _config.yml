@@ -26,9 +26,12 @@ github_username:  sj
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-lanyon
+
+#theme: jekyll-theme-lanyon
+remote_theme: poole/lanyon
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
