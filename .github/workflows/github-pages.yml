@@ -12,4 +12,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: helaili/jekyll-action@64b759fc0e18682ff47a0522072df02762a76af2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUBTOKEN }}
