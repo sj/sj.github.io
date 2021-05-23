@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://sj.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sj.github.io/" rel="alternate" type="text/html" /><updated>2021-05-23T15:10:20+00:00</updated><id>https://sj.github.io/feed.xml</id><title type="html">Contemplations of an oblivious mind</title><subtitle>&lt;h1 style=&quot;color: #FFFFFF&quot;&gt;I'm Bas&lt;/h1&gt;I build security products at GitHub. I love data. In a previous life, I had fun with &lt;a href=&quot;/pwahstacktc&quot;&gt;graph algorithms&lt;/a&gt;, wrote a &lt;a href=&quot;https://ora.ox.ac.uk/objects/uuid:91aa418d-536e-472d-9089-39bef5f62e62&quot;&gt;PhD thesis on probabilistic data&lt;/a&gt;, and built &lt;a href=&quot;http://paleolatitude.org&quot;&gt;paleolatitude.org&lt;/a&gt;. Every now and then I write my thoughts down here, or write some &lt;a href=&quot;https://github.com/sj&quot;&gt;code on GitHub&lt;/a&gt;.</subtitle><entry><title type="html">Map of classic VW aircooled specialist garages in the UK — constantly updated!</title><link href="https://sj.github.io/2018/09/20/map-of-classic-vw-aircooled-specialist-garages/" rel="alternate" type="text/html" title="Map of classic VW aircooled specialist garages in the UK — constantly updated!" /><published>2018-09-20T00:00:00+00:00</published><updated>2018-09-20T00:00:00+00:00</updated><id>https://sj.github.io/2018/09/20/map-of-classic-vw-aircooled-specialist-garages</id><content type="html" xml:base="https://sj.github.io/2018/09/20/map-of-classic-vw-aircooled-specialist-garages/">&lt;p&gt;We have a lovely 1972 Volkwagen T2 campervan with a lot of character. That’s a polite way of saying: we break down every now and then.&lt;/p&gt;
+
+&lt;p&gt;That’s why I started to collect details of aircooled VW engine specialists. The map should appear below, but you can also &lt;a href=&quot;https://drive.google.com/open?id=1s5cGWdGU3aw1oSsEvImWknGDvLPEwq8s&quot; target=&quot;_blank&quot;&gt;view a larger version straight in Google Maps&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’m particularly interested in contributions for Scotland and parts of North-Western Europe, but really: any suggestions for anywhere in the world are more than welcome!&lt;/p&gt;
+
+&lt;iframe src=&quot;https://www.google.com/maps/d/u/0/embed?mid=1s5cGWdGU3aw1oSsEvImWknGDvLPEwq8s&quot; width=&quot;100%&quot; height=&quot;500&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;(If you have the right permissions, you should be able to edit the map &lt;a href=&quot;https://www.google.com/maps/d/u/0/edit?mid=1s5cGWdGU3aw1oSsEvImWknGDvLPEwq8s&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;</content><author><name></name></author><category term="volkwagen" /><summary type="html">We have a lovely 1972 Volkwagen T2 campervan with a lot of character. That’s a polite way of saying: we break down every now and then.</summary></entry><entry><title type="html">Temporary fix for CERT VU#582384 / CVE-2016-6277 vulnerability for various Netgear routers (including R6400, R7000, R8000 and similar)</title><link href="https://sj.github.io/2016/12/10/temporary-fix-for-cert-vu582384-cwe-77-on-netgear-r7000-and-r6400-routers/" rel="alternate" type="text/html" title="Temporary fix for CERT VU#582384 / CVE-2016-6277 vulnerability for various Netgear routers (including R6400, R7000, R8000 and similar)" /><published>2016-12-10T00:00:00+00:00</published><updated>2016-12-10T00:00:00+00:00</updated><id>https://sj.github.io/2016/12/10/temporary-fix-for-cert-vu582384-cwe-77-on-netgear-r7000-and-r6400-routers</id><content type="html" xml:base="https://sj.github.io/2016/12/10/temporary-fix-for-cert-vu582384-cwe-77-on-netgear-r7000-and-r6400-routers/">&lt;p&gt;Like many people, I was affected by the recently disclosed code injection vulnerability (&lt;a href=&quot;https://www.kb.cert.org/vuls/id/582384&quot; target=&quot;_blank&quot;&gt;CERT VU#582384&lt;/a&gt;, &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2016-6277&quot;&gt;CVE-2016-6277/CVE-2016-582384&lt;/a&gt;) that affects Netgear R7000 (“Nighthawk”) and R6400 routers. As Netgear haven’t bothered to publish a quick patch for this gaping hole in their devices, I looked for a simple fix myself. This posts discusses the simple one-step process and the details. Depending on your tech skills, this will take you anywhere between five seconds and one minute.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.sj-vs.net/wp-content/uploads/2016/12/netgear-R7000.jpg&quot; alt=&quot;Netgear R7000&quot; width=&quot;800&quot; height=&quot;587&quot; class=&quot;size-full wp-image-336&quot; /&gt; Netgear R7000&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 13/12/2016&lt;/strong&gt;: months after first having been notified of this problems, and four days after wide-spread media attention, Netgear has &lt;em&gt;finally&lt;/em&gt; released beta firmwares to fix this vulnerability for the &lt;a href=&quot;http://kb.netgear.com/000036454/R6400-Firmware-Version-1-0-1-18-Beta&quot; target=&quot;_blank&quot;&gt;R6400&lt;/a&gt;, &lt;a href=&quot;http://kb.netgear.com/000036453/R7000-Firmware-Version-1-0-7-6-Beta&quot; target=&quot;_blank&quot;&gt;R7000&lt;/a&gt;, and &lt;a href=&quot;http://kb.netgear.com/000036455/R8000-Firmware-Version-1-0-3-26-Beta&quot; target=&quot;_blank&quot;&gt;R8000&lt;/a&gt;. More info here: &lt;a href=&quot;http://kb.netgear.com/000036386/CVE-2016-582384&quot; target=&quot;_blank&quot;&gt;http://kb.netgear.com/000036386/CVE-2016-582384&lt;/a&gt;.&lt;/p&gt;
+
+&lt;center&gt;&lt;h4&gt;&lt;span style=&quot;color: #AA0000&quot;&gt;Only continue reading if there is no &lt;a href=&quot;http://kb.netgear.com/000036386/CVE-2016-582384&quot; target=&quot;_blank&quot;&gt;beta firmware&lt;/a&gt; available for your device&lt;/span&gt;&lt;/h4&gt;&lt;/center&gt;
+
+&lt;p&gt;This fix for the CERT VU#582384 vulnerability actually employs the vulnerability itself to forcefully stop the web server that is at the core of the vulnerability. This unfortunately means that (1) this fix will only work until you reboot (i.e., switch off/on) your router, and (2) you won’t be able to access your router’s settings panel via your web browser. On the plus side: none of the instructions below will make any &lt;em&gt;permanent&lt;/em&gt; changes to your router configuration. Hopefully Netgear will soon come with a real fix for this issue.&lt;/p&gt;
+&lt;h2&gt;tl;dr&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;(optional) verify that your router is affected by going to this URL: 
+&lt;code&gt;http://[router-address]/cgi-bin/;uname$IFS-a&lt;/code&gt;
+If that shows you anything but an error (or an empty page): you're affected. If you're unsure: please read the detailed explanation below.&lt;/li&gt;
+&lt;li&gt;Point your browser to the following URL to terminate the web server process (which facilitates the vulnerability) on your router:
+&lt;code&gt;http://[router-address]/cgi-bin/;killall$IFS'httpd'&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(optional) verify that the URL in step (1) is no longer accessible&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Did this fix save you from being hacked? Please consider &lt;a href=&quot;#coffee&quot;&gt;buying me a coffee&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/bas_van_schaik&quot; target=&quot;_blank&quot;&gt;do say hi on Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Detailed explanation&lt;/h2&gt;
+&lt;p&gt;Wherever I write &lt;code&gt;[router-address]&lt;/code&gt; in an URL, you should replace that with the actual address of your router. For many people the magic word &lt;code&gt;routerlogin.net&lt;/code&gt; will work. If that doesn’t work: it’s typically that’s something like &lt;code&gt;192.168.0.1&lt;/code&gt;. If you’re on Mac or Linux, you can find this out by typing ‘route -n’ in a console (terminal) window. That will show you a table ‐ look for the value in the &lt;code&gt;Gateway&lt;/code&gt; column that belongs to &lt;code&gt;Destination&lt;/code&gt; &lt;code&gt;0.0.0.0&lt;/code&gt; like in the picture below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;wp-image-303 size-full&quot; src=&quot;http://www.sj-vs.net/wp-content/uploads/2016/12/ifconfig.png&quot; alt=&quot;Run 'ifconfig' to find out the IP address of your Netgear router&quot; width=&quot;897&quot; height=&quot;190&quot; /&gt; Run ‘ifconfig’ to find out the IP address of your Netgear router&lt;/p&gt;
+
+&lt;h4 id=&quot;step1&quot;&gt;Step 1 (optional): verify you're vulnerable&lt;/h4&gt;
+&lt;p&gt;Open your browser and visit the following address:&lt;/p&gt;
+&lt;center&gt;&lt;code&gt;http://[router-address]/cgi-bin/;uname$IFS-a&lt;/code&gt;&lt;br /&gt;
+(For most people, this URL will work: &lt;a href=&quot;http://www.routerlogin.net/cgi-bin/;uname$IFS-a&quot; target=&quot;_blank&quot;&gt;http://www.routerlogin.net/cgi-bin/;uname$IFS-a&lt;/a&gt;)&lt;/center&gt;
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;If a web page appears (which is not an error): you’re vulnerable. In my case, the page contains a text that starts with: &lt;code&gt;Linux R7000 2.6.36.4brcmarm+ (...)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4&gt;Step 2: terminate the web server process on your router&lt;/h4&gt;
+&lt;p&gt;This is when you actually need to exploit the vulnerability in the router to simply terminate the web server process (which facilitates the remote vulnerability) on the router. Point your browser to the following URL:&lt;/p&gt;
+
+&lt;center&gt;
+&lt;code&gt;http://[router-address]/cgi-bin/;killall$IFS'httpd'&lt;/code&gt;&lt;br /&gt;
+(For most people, this URL will work: &lt;a href=&quot;http://www.routerlogin.net/cgi-bin/;killall$IFS'httpd'&quot; target=&quot;_blank&quot;&gt;http://www.routerlogin.net/cgi-bin/;killall$IFS'httpd'&lt;/a&gt;)
+&lt;/center&gt;
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;This will very likely give you a ‘web server not available’ error, but it will have stopped (killed) the web server process. This means that it is now impossible to exploit the vulnerability. Note that it is now also impossible to use the web configuration interface of your router (until you next turn it off and on again). You can double-check whether you’re vulnerable by checking the URL in &lt;a href=&quot;#step1&quot;&gt;step 1&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You are now safe from the CERT VU#582384 vulnerability. But don’t forget: after turning your router off and on again (or a power cut!), the web server process will start again, and you will be vulnerable again!&lt;/p&gt;
+
+&lt;h2 id=&quot;coffee&quot;&gt;Did this fix help you?&lt;/h2&gt;
+&lt;p&gt;Did this fix save you from being hacked? Please consider buying me a coffee, and &lt;a href=&quot;https://twitter.com/bas_van_schaik&quot; target=&quot;_blank&quot;&gt;do say hi on Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;List of affected devices&lt;/h2&gt;
+&lt;p&gt;The list of affected devices seems to be growing. These are the devices I’ve heard about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;R6250&lt;/strong&gt; (AC1600): confirmed by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R6400&lt;/strong&gt; (AC1750): confirmed by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R6700&lt;/strong&gt; Nighthawk (AC1750): confirmed by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R7000&lt;/strong&gt; Nighthawk (AC1900, AC2300): confirmed (by myself and Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R7100LG&lt;/strong&gt; Nighthawk: confirmed by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R7500&lt;/strong&gt; Nighthawk X4 (AC2350): confirmed &lt;a href=&quot;#cite2-kalypto&quot;&gt;[2]&lt;/a&gt; and Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R7800&lt;/strong&gt; Nighthawk X4S(AC2600): confirmed &lt;a href=&quot;#cite2-kalypto&quot;&gt;[2]&lt;/a&gt;, &lt;em&gt;not&lt;/em&gt; by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R7900&lt;/strong&gt; Nighthawk: confirmed by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R8000&lt;/strong&gt; Nighthawk (AC3200): confirmed by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R8500&lt;/strong&gt; Nighthawk X8 (AC5300): confirmed &lt;a href=&quot;#cite2-kalypto&quot;&gt;[2]&lt;/a&gt;, &lt;em&gt;not&lt;/em&gt; by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R9000&lt;/strong&gt; Nighthawk X10 (AD7200): confirmed &lt;a href=&quot;#cite2-kalypto&quot;&gt;[2]&lt;/a&gt;, &lt;em&gt;not&lt;/em&gt; by Netgear &lt;a href=&quot;#cite3-netgear&quot;&gt;[3]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It appears that most custom firmwares (e.g. &lt;a href=&quot;https://advancedtomato.com/&quot; target=&quot;_blank&quot;&gt;AdvancedTomato&lt;/a&gt;) are not vulnerable. If you want to be sure: just &lt;a href=&quot;#step1&quot;&gt;check step 1&lt;/a&gt;! If you have more information, please let me know in the comments below. I’ve had at least one report of a user who experienced that the French version of his firmware was unaffected (R7000, v1.0.7.2_1.1.93), but the English version was in fact vulnerable.&lt;/p&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;p&gt;[1] &lt;a id=&quot;cite1-cert&quot; href=&quot;https://www.kb.cert.org/vuls/id/582384&quot;&gt;Cernegie Mellon University CERT Vulnerability Notes Database: VU #582384&lt;/a&gt;
+[2] &lt;a id=&quot;cite2-kalypto&quot; href=&quot;https://kalypto.org/research/netgear-vulnerability-expanded/&quot;&gt;Kalypto (In)Security: NetGear Vulnerability Expanded&lt;/a&gt;
+[3] &lt;a id=&quot;cite3-netgear&quot; href=&quot;http://kb.netgear.com/000036386/CVE-2016-582384&quot; target=&quot;_blank&quot;&gt;Netgear: Security Advisory for VU 582384&lt;/a&gt; (last version seen: 13/12/2016 12:00 noon GMT)&lt;/p&gt;
+
+&lt;p&gt;(I’ve closed the comments now Netgear have released a (beta) firmware to resolve this vulnerability. If you &lt;em&gt;really&lt;/em&gt; need to contact me, &lt;a href=&quot;https://twitter.com/bas_van_schaik&quot; target=&quot;_blank&quot;&gt;come and find me on Twitter&lt;/a&gt;)&lt;/p&gt;</content><author><name></name></author><category term="security" /><summary type="html">Like many people, I was affected by the recently disclosed code injection vulnerability (CERT VU#582384, CVE-2016-6277/CVE-2016-582384) that affects Netgear R7000 (“Nighthawk”) and R6400 routers. As Netgear haven’t bothered to publish a quick patch for this gaping hole in their devices, I looked for a simple fix myself. This posts discusses the simple one-step process and the details. Depending on your tech skills, this will take you anywhere between five seconds and one minute.</summary></entry><entry><title type="html">SIGMOD 2011: A memory efficient reachability data structure through bit vector compression (PWAHStackTC)</title><link href="https://sj.github.io/pwahstacktc" rel="alternate" type="text/html" title="SIGMOD 2011: A memory efficient reachability data structure through bit vector compression (PWAHStackTC)" /><published>2011-10-11T00:00:00+00:00</published><updated>2011-10-11T00:00:00+00:00</updated><id>https://sj.github.io/sigmod-2011-a-memory-efficient-reachability-data-structure-through-bit-vector-compression-pwahstacktc</id><content type="html" xml:base="https://sj.github.io/pwahstacktc">&lt;p&gt;Back in 2010, I worked on a research project at the University of Oxford with Prof. Oege de Moor. The project’s aim was to efficiently compute, store, and answer reachability queries on large directed graphs. This work eventually led to a paper at ACM SIGMOD 2011, one of the largest international conferences on management of data. In this post, I will endeavour to convey the intuition behind our approach: bit vector compression using a specially designed scheme called PWAH.&lt;/p&gt;
+
+&lt;p&gt;The SIGMOD paper [&lt;a href=&quot;#VanSchaik2011&quot;&gt;VanSchaik2011&lt;/a&gt;] can be downloaded from the ACM digital library (provided that you have access to that). The DOI is &lt;a href=&quot;http://dx.doi.org/10.1145/1989323.1989419&quot;&gt;10.1145/1989323.1989419&lt;/a&gt;. The MSc. thesis on which this paper is based can be downloaded from the references [&lt;a href=&quot;#VanSchaik2010&quot;&gt;VanSchaik2010&lt;/a&gt;]. A copy of the source code of our PWAH implementation and the implementation of Nuutila’s algorithm is available on GitHub: &lt;a href=&quot;https://github.com/sj/pwahstacktc&quot;&gt;github.com/sj/pwahstacktc&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-background-tarjans-algorithm&quot;&gt;Some background: Tarjan’s algorithm&lt;/h2&gt;
+&lt;p&gt;In 1972, Robert Tarjan showed [&lt;a href=&quot;#Tarjan1972&quot;&gt;Tarjan1972&lt;/a&gt;] how to use a depth first search to find the strongly connected components in a directed graph. This algorithm was extended by Esko Nuutila in the 1990’s [&lt;a href=&quot;#Nuutila1995&quot;&gt;Nuutila1995&lt;/a&gt;] to store reachability information of strongly connected components at the same time.&lt;/p&gt;
+
+&lt;p&gt;The algorithm introduced by Nuutila depends on an underlying data structure to &lt;em&gt;store&lt;/em&gt; and (very important!) &lt;em&gt;merge&lt;/em&gt; reachability information. Examples of such data structures include, but are not limited to:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;Array of integers (indices of strongly connected components)&lt;/li&gt;
+	&lt;li&gt;Bit vectors (each 1-bit indicates a reachable component)&lt;/li&gt;
+	&lt;li&gt;Interval lists&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;adding-bit-vector-compression&quot;&gt;Adding bit vector compression&lt;/h2&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;In our experiments, bit vectors provided (by far) the best performance when merging reachability information of two strongly connected components. This can be done by computing the bitwise OR of the two bit vectors. However, storing a &lt;em&gt;O(n)&lt;/em&gt; size bit vector for all &lt;em&gt;n&lt;/em&gt; strongly connected components (worst case: &lt;em&gt;n = |V|&lt;/em&gt;, the number of vertices) is equivalent to constructing (little over half) an &lt;em&gt;n&lt;/em&gt; by &lt;em&gt;n&lt;/em&gt; reachability matrix. This is considered infeasible for large graphs, &lt;em&gt;i.e.&lt;/em&gt; storing reachability information for a graph with 1,000,000 vertices (and an equal number of strongly connected components) requires &lt;em&gt;(n * n + n) / 2 = 500,000,500,000&lt;/em&gt; bits = over 58 gigabytes.&lt;/p&gt;
+
+&lt;h3 id=&quot;introducing-pwah-compression&quot;&gt;Introducing PWAH compression&lt;/h3&gt;
+&lt;p&gt;In order to reduce the memory usage of the bit vectors, whilst maintaining its main advantage (efficiency of merge operations), we decided to design a bit vector compression technique called Partitioned Word-Aligned Hybrid Compression (PWAH), based on Word-Aligned Hybrid Compression (WAH) by Wu et al. [&lt;a href=&quot;#Wu2004&quot;&gt;Wu2004&lt;/a&gt;].&lt;/p&gt;
+
+&lt;p&gt;PWAH compresses bits by using 64-bit words which are split into 2 (PWAH-2), 4 (PWAH-4) or 8 (PWAH-8) partitions. The idea is most easily explained by an example PWAH-4 compressed 64-bits word:&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+&lt;table class=&quot;pwah&quot;&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;bits&quot;&gt;
+&lt;td&gt;1010&lt;/td&gt;
+&lt;td&gt;10000000001011&lt;/td&gt;
+&lt;td&gt;111010000100101&lt;/td&gt;
+&lt;td&gt;000000000010010&lt;/td&gt;
+&lt;td&gt;000000010000011&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;descr&quot;&gt;
+&lt;td&gt;header&lt;/td&gt;
+&lt;td&gt;partition 1: &lt;em&gt;fill&lt;/em&gt; of 11 blocks of 1-bits&lt;/td&gt;
+&lt;td&gt;partition 2: &lt;em&gt;literal&lt;/em&gt; of 15 bits&lt;/td&gt;
+&lt;td&gt;partition 3: &lt;em&gt;fill&lt;/em&gt; of 18 blocks of 0-bits&lt;/td&gt;
+&lt;td&gt;partition 4: &lt;em&gt;literal&lt;/em&gt; of 15 bits&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;The header and the four different partitions should be interpreted as follows:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;Header: 4 bits that indicate the type of each of the four partitions. A 1-bit in the header indicates a &lt;em&gt;fill&lt;/em&gt; partition (see description of partition 1), a 0-bit indicates a &lt;em&gt;literal&lt;/em&gt;partition (see description of partition 0).&lt;/li&gt;
+	&lt;li&gt;Partition 1: a &lt;em&gt;fill&lt;/em&gt; partition (as indicated by the header): a long sequence of consecutive identical bits. The preceding 1-bit indicates that this partition represents a series of 1-bits, the other bits (&lt;span class=&quot;bits&quot;&gt;0...01011&lt;/span&gt;) indicate the length of the consecutive series: 11 blocks = 165 bits (the block size of PWAH-4 equals 15 bits, see [&lt;a href=&quot;#VanSchaik2010&quot;&gt;VanSchaik2010&lt;/a&gt;, &lt;a href=&quot;#VanSchaik2011&quot;&gt;VanSchaik2011&lt;/a&gt;] for details).&lt;/li&gt;
+	&lt;li&gt;Partition 2: a &lt;em&gt;literal&lt;/em&gt;partition (as indicated by the header): 15 bits which are not consecutive identical bits. These bits are included uncompressed.&lt;/li&gt;
+	&lt;li&gt;Partition 3: a &lt;em&gt;fill&lt;/em&gt;partition representing 18 blocks of 0-bits (= 270 0-bits).&lt;/li&gt;
+	&lt;li&gt;Partition 4: another &lt;em&gt;literal&lt;/em&gt; partition with 15 uncompressed bits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The 64-bits PWAH compressed word represents a total of 465 uncompressed bits. Actively using some of the properties of a depth-first search, the compression scheme yields compressions of over a factor 6000 when applied to reachability information in strongly corrected components.&lt;/p&gt;
+
+&lt;p&gt;For a much more detailed description of PWAH in general, the different PWAH schemes, a theoretical and experimental analysis: see [&lt;a href=&quot;#VanSchaik2010&quot;&gt;VanSchaik2010&lt;/a&gt;, &lt;a href=&quot;#VanSchaik2011&quot;&gt;VanSchaik2011&lt;/a&gt;].&lt;/p&gt;
+
+&lt;h2 id=&quot;paper-errata&quot;&gt;Paper errata&lt;/h2&gt;
+&lt;p&gt;Errata for [&lt;a href=&quot;#VanSchaik2011&quot;&gt;VanSchaik2011&lt;/a&gt;]:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In Figure 2 (&amp;ldquo;&lt;em&gt;WAH compression example&lt;/em&gt;&amp;rdquo;) on page 4, the last word of the WAH compressed bit vector is &lt;em&gt;not&lt;/em&gt; a &lt;em&gt;0-fill&lt;/em&gt;, but a &lt;em&gt;1-fill&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;In order of appeareance:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;a name=&quot;VanSchaik2010&quot;&gt;&lt;/a&gt;VanSchaik2010: Sebastiaan J. van Schaik. Answering reachability queries on large directed graphs, introducing a new data structure using bit vector compression. MSc. thesis, Utrecht University, 2010. &lt;a href=&quot;/wp-content/uploads/2011/10/INF-SCR-10-10.pdf&quot;&gt;Download from here&lt;/a&gt;.&lt;/li&gt;
+	&lt;li&gt;&lt;a name=&quot;VanSchaik2011&quot;&gt;&lt;/a&gt;VanSchaik2011: Sebastiaan J. van Schaik and Oege de Moor. A memory efficient reachability data structure through bit vector compression. In SIGMOD '11: Proceedings of the 37th SIGMOD international conference on Management of data, pages 913-924, New York, NY, USA, 2011. ACM. DOI: &lt;a href=&quot;http://dx.doi.org/10.1145/1989323.1989419&quot;&gt;10.1145/1989323.1989419&lt;/a&gt;.&lt;/li&gt;
+	&lt;li&gt;&lt;a name=&quot;Tarjan1972&quot;&gt;&lt;/a&gt;Tarjan1972: Robert E. Tarjan. Depth-first search and linear graph algorithms. SIAM Journal on Computing, 1(2):146{160, 1972.&lt;/li&gt;
+	&lt;li&gt;&lt;a name=&quot;Nuutila1995&quot;&gt;&lt;/a&gt;Nuutila1995: Esko Nuutila. Efficient Transitive Closure Computation in Large Digraphs. PhD thesis, Finnish Academy of Technology, 1995. http://www.cs.hut.fi/~enu/tc.html.&lt;/li&gt;
+	&lt;li&gt;&lt;a name=&quot;Wu2004&quot;&gt;&lt;/a&gt;Wu2004: Kesheng Wu, Ekow J. Otoo, and Arie Shoshani. An efficient compression scheme for bitmap indices. Technical report, ACM Transactions on Database Systems, 2004.&lt;/li&gt;
+	&lt;li&gt;&lt;a name=&quot;Jin2008&quot;&gt;&lt;/a&gt;Jin2008: R. Jin, Y. Xiang, N. Ruan and H. Wang. Efficiently answering reachability queries on very large directed graphs. In SIGMOD '08: Proceedings of the ACM
+SIGMOD international conference on Management of data, pages 595{608, New York, NY, USA, 2008.&lt;/li&gt;
+	&lt;li&gt;&lt;a name=&quot;Jin2009&quot;&gt;&lt;/a&gt;Jin2009: R. Jin, Y. Xiang, N. Ruan and D. Fuhry. 3-HOP: a high-compression indexing scheme for reachability query. In SIGMOD '09: Proceedings of the ACM SIGMOD international conference on Management of data, pages 813{826, New York, NY, USA, 2009.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;source-code&quot;&gt;Source code&lt;/h2&gt;
+
+&lt;p&gt;The implementation is licensed under the GPL:&lt;/p&gt;
+&lt;div style=&quot;margin-left: 50px; font-family: mono;&quot;&gt;This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.You should have received a copy of the GNU General Public License
+along with this program. If not, see &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;http://www.gnu.org/licenses/&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following guide will help you download, compile and run the PWAH code on a 64-bit Linux machine. If you are a Windows user, your best bet is to install Eclipse (with the CDT plugin for C++ development) and import the PWAH Eclipse project into your workspace.&lt;/p&gt;
+
+&lt;p&gt;The C++ source code (including a Makefile and an Eclipse CDT project specification) of the implementation is available through a publicly accessible Git repository. If you have Git (see &lt;a href=&quot;http://www.git-scm.com&quot;&gt;the Git website&lt;/a&gt;) installed, you can run the following command to download the source code (and datasets) into a directory called “PWAHStackTC”:&lt;/p&gt;
+&lt;div style=&quot;margin-left: 50px;&quot;&gt;&lt;pre&gt;git clone https://github.com/sj/PWAHStackTC&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you don’t like using Git and would rather have a ZIP-file with the most recent implementation, visit &lt;a href=&quot;https://github.com/sj/PWAHStackTC&quot;&gt;the public GitHub repository&lt;/a&gt; and click on &quot;Download ZIP&quot;.&lt;/p&gt;
+
+&lt;p&gt;Compilation instructions can be found in the provided README.txt file, which has been tested with the GNU C++ compiler (versions 4.5, 4.6, 4.7). Should you encounter any problems compiling or running PWAHStackTC, feel free to open a GitHub issue. After having successfully compiled the source code in the &quot;Release&quot; directory, invoke PWAHStackTC with the command line parameter “&lt;code style=&quot;font-family: &amp;quot;Courier New&amp;quot;, Monaco, monospace&quot;&gt;--help&lt;/code&gt;” (that’s “help” preceded by two dashes) for usage information. Simple usage example on an extremely small graph (10 vertices, included in the source code):&lt;/p&gt;
+&lt;div style=&quot;margin-left: 50px;&quot;&gt;
+&lt;pre&gt;$ ./PWAHStackTC --filename=../../datasets/nuutila.graph
+Parsing graph file: /tmp/nuutila.graph... done, that took 0.1780 msecs
+Number of vertices: 10, number of edges: 17
+Computing transitive closure using PWAHStackTC -- not indexed&amp;gt; (ALWAYS using multi-OR)... done, that took 0.0690 msecs
+Number of components (vertices in condensation graph): 4
+Counting number of edges in condensed transitive closure... 7 edges
+Counting number of edges in transitive closure... 62 edges
+Memory used by the reachability data structures of the PWAHStackTC -- not indexed&amp;gt; algorithm: 192 bits
+Memory used by equivalent interval lists: 192 bits
+Total memory used by the PWAHStackTC -- not indexed&amp;gt; algorithm: 512 bits
+
+Generating 1000000 random sources and destinations... done, that took 53.3270 msecs
+Performing 1000000 random queries... done, that took 22.7400 msecs
+530326 pairs turned out to be reachable.
+Number of bits required to store WAH compressed bitsets: 512
+Average construction time over 1 runs: 0.0690 msecs
+Average query time over 1 runs: 22.7400 msecs for 1000000 queries
+AVG_CONSTR_TIME=0.0690
+AVG_QUERY_TIME=22.7400
+MEM_USAGE=512&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;PWAHStackTC expects its input graphs in the following format:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;line 1: the number of vertices &lt;em&gt;n&lt;/em&gt; and the number of edges &lt;em&gt;m&lt;/em&gt;, separated by a space&lt;/li&gt;
+	&lt;li&gt;following &lt;em&gt;n&lt;/em&gt; lines: adjacency lists for vertex &lt;em&gt;n&lt;/em&gt;, listing the indices of adjacent vertices. Note that indices start at 1. A vertex without any adjacent vertices is encoded as an empty line.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-sets&quot;&gt;Data sets&lt;/h3&gt;
+&lt;p&gt;Data sets from multiple sources have been used for this paper, most noticeably from [&lt;a href=&quot;#Jin2008&quot;&gt;Jin2008&lt;/a&gt;] and [&lt;a href=&quot;#Jin2009&quot;&gt;Jin2009&lt;/a&gt;] and data sets kindly provided by Semmle Ltd. The graph files (graph format described above) are included in the Git repository.&lt;/p&gt;
+
+&lt;h3&gt;Common compile-time and run-time errors&lt;/h3&gt;
+&lt;h5&gt;Compiler error: &amp;ldquo;&lt;em&gt;invalid suffix (...) on integer constant&lt;/em&gt;&amp;rdquo;&lt;/h5&gt;
+&lt;pre&gt;(...)
+Building file: ../src/datastructures/bitsets/wah/WAHBitSet.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF&quot;src/datastructures/bitsets/wah/WAHBitSet.d&quot; -MT&quot;src/datastructures/bitsets/wah/WAHBitSet.d&quot; -o &quot;src/datastructures/bitsets/wah/WAHBitSet.o&quot; &quot;../src/datastructures/bitsets/wah/WAHBitSet.cpp&quot;
+In file included from ../src/datastructures/bitsets/wah/WAHBitSet.cpp:26:
+../src/datastructures/bitsets/wah/WAHBitSet.h:53:32: error: invalid suffix &quot;b01111111111111111111111111111111&quot; on integer constant
+../src/datastructures/bitsets/wah/WAHBitSet.h:56:34: error: invalid suffix &quot;b00000000000000000000000000000000&quot; on integer constant
+../src/datastructures/bitsets/wah/WAHBitSet.h:59:35: error: invalid suffix &quot;b11000000000000000000000000000000&quot; on integer constant
+../src/datastructures/bitsets/wah/WAHBitSet.h:62:36: error: invalid suffix &quot;b10000000000000000000000000000000&quot; on integer constant
+(...)&lt;/pre&gt;
+&lt;p&gt;This means you’re using a GCC version older than 4.3. Older GCC versions don’t support integer constants written in binary format, see: &lt;a href=&quot;http://gcc.gnu.org/gcc-4.3/changes.html&quot; target=&quot;_blank&quot;&gt;http://gcc.gnu.org/gcc-4.3/changes.html&lt;/a&gt;. At the time of writing, GCC 4.3 has been available for more than five years. Please upgrade your compiler.&lt;/p&gt;
+
+&lt;h5&gt;Compiler error: &amp;ldquo;&lt;em&gt;this implementation depends on 64-bit longs, your platform does not seem to offer those. Aborting.&lt;/em&gt;&amp;rdquo;&lt;/h5&gt;
+&lt;p&gt;This message is fairly self-explanatory: you’re trying to compile the source code on a 32-bit operating system, but both the theory behind PWAH requires 64-bit data types. If you do have a 64-bit processor, you will have to upgrade your operating system to its 64-bit equivalent. If you have an old 32-bit hardware architecture, the only solution is buying a new machine. Sorry.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a id=&quot;contactme&quot;&gt;Contact me&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If you have any problems downloading, compiling, or using the implementation, please open &lt;a href=&quot;https://github.com/sj/PWAHStackTC/issues&quot;&gt;a GitHub issue in the repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="pwahstacktc" /><summary type="html">Back in 2010, I worked on a research project at the University of Oxford with Prof. Oege de Moor. The project’s aim was to efficiently compute, store, and answer reachability queries on large directed graphs. This work eventually led to a paper at ACM SIGMOD 2011, one of the largest international conferences on management of data. In this post, I will endeavour to convey the intuition behind our approach: bit vector compression using a specially designed scheme called PWAH.</summary></entry></feed>

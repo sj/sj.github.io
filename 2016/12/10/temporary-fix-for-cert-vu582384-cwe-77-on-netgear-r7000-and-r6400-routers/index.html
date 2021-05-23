@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Temporary fix for CERT VU#582384 / CVE-2016-6277 vulnerability for various Netgear routers (including R6400, R7000, R8000 and similar) &middot; Contemplations of an oblivious mind
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href=/assets/css/styles.css>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href=/assets/apple-touch-icon-precomposed.png>
+  <link rel="shortcut icon" href=/assets/favicon.ico>
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="Contemplations of an oblivious mind" href="/feed.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p><h1 style="color: #FFFFFF">I'm Bas</h1>I build security products at GitHub. I love data. In a previous life, I had fun with <a href="/pwahstacktc">graph algorithms</a>, wrote a <a href="https://ora.ox.ac.uk/objects/uuid:91aa418d-536e-472d-9089-39bef5f62e62">PhD thesis on probabilistic data</a>, and built <a href="http://paleolatitude.org">paleolatitude.org</a>. Every now and then I write my thoughts down here, or write some <a href="https://github.com/sj">code on GitHub</a>.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://sj.github.io/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://sj.github.io/about-me/">About me</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2021. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=/ title="Home">Contemplations of an oblivious mind</a>
+            <small></small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Temporary fix for CERT VU#582384 / CVE-2016-6277 vulnerability for various Netgear routers (including R6400, R7000, R8000 and similar)</h1>
+  <span class="post-date">10 Dec 2016</span>
+  <p>Like many people, I was affected by the recently disclosed code injection vulnerability (<a href="https://www.kb.cert.org/vuls/id/582384" target="_blank">CERT VU#582384</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-6277">CVE-2016-6277/CVE-2016-582384</a>) that affects Netgear R7000 (“Nighthawk”) and R6400 routers. As Netgear haven’t bothered to publish a quick patch for this gaping hole in their devices, I looked for a simple fix myself. This posts discusses the simple one-step process and the details. Depending on your tech skills, this will take you anywhere between five seconds and one minute.</p>
+
+<p><img src="http://www.sj-vs.net/wp-content/uploads/2016/12/netgear-R7000.jpg" alt="Netgear R7000" width="800" height="587" class="size-full wp-image-336" /> Netgear R7000</p>
+
+<p><strong>Update 13/12/2016</strong>: months after first having been notified of this problems, and four days after wide-spread media attention, Netgear has <em>finally</em> released beta firmwares to fix this vulnerability for the <a href="http://kb.netgear.com/000036454/R6400-Firmware-Version-1-0-1-18-Beta" target="_blank">R6400</a>, <a href="http://kb.netgear.com/000036453/R7000-Firmware-Version-1-0-7-6-Beta" target="_blank">R7000</a>, and <a href="http://kb.netgear.com/000036455/R8000-Firmware-Version-1-0-3-26-Beta" target="_blank">R8000</a>. More info here: <a href="http://kb.netgear.com/000036386/CVE-2016-582384" target="_blank">http://kb.netgear.com/000036386/CVE-2016-582384</a>.</p>
+
+<center><h4><span style="color: #AA0000">Only continue reading if there is no <a href="http://kb.netgear.com/000036386/CVE-2016-582384" target="_blank">beta firmware</a> available for your device</span></h4></center>
+
+<p>This fix for the CERT VU#582384 vulnerability actually employs the vulnerability itself to forcefully stop the web server that is at the core of the vulnerability. This unfortunately means that (1) this fix will only work until you reboot (i.e., switch off/on) your router, and (2) you won’t be able to access your router’s settings panel via your web browser. On the plus side: none of the instructions below will make any <em>permanent</em> changes to your router configuration. Hopefully Netgear will soon come with a real fix for this issue.</p>
+<h2>tl;dr</h2>
+<ol>
+<li>(optional) verify that your router is affected by going to this URL: 
+<code>http://[router-address]/cgi-bin/;uname$IFS-a</code>
+If that shows you anything but an error (or an empty page): you're affected. If you're unsure: please read the detailed explanation below.</li>
+<li>Point your browser to the following URL to terminate the web server process (which facilitates the vulnerability) on your router:
+<code>http://[router-address]/cgi-bin/;killall$IFS'httpd'</code></li>
+<li>(optional) verify that the URL in step (1) is no longer accessible</li>
+</ol>
+
+<p>Did this fix save you from being hacked? Please consider <a href="#coffee">buying me a coffee</a>, and <a href="https://twitter.com/bas_van_schaik" target="_blank">do say hi on Twitter</a>.</p>
+
+<h2>Detailed explanation</h2>
+<p>Wherever I write <code>[router-address]</code> in an URL, you should replace that with the actual address of your router. For many people the magic word <code>routerlogin.net</code> will work. If that doesn’t work: it’s typically that’s something like <code>192.168.0.1</code>. If you’re on Mac or Linux, you can find this out by typing ‘route -n’ in a console (terminal) window. That will show you a table ‐ look for the value in the <code>Gateway</code> column that belongs to <code>Destination</code> <code>0.0.0.0</code> like in the picture below:</p>
+
+<p><img class="wp-image-303 size-full" src="http://www.sj-vs.net/wp-content/uploads/2016/12/ifconfig.png" alt="Run 'ifconfig' to find out the IP address of your Netgear router" width="897" height="190" /> Run ‘ifconfig’ to find out the IP address of your Netgear router</p>
+
+<h4 id="step1">Step 1 (optional): verify you're vulnerable</h4>
+<p>Open your browser and visit the following address:</p>
+<center><code>http://[router-address]/cgi-bin/;uname$IFS-a</code><br />
+(For most people, this URL will work: <a href="http://www.routerlogin.net/cgi-bin/;uname$IFS-a" target="_blank">http://www.routerlogin.net/cgi-bin/;uname$IFS-a</a>)</center>
+<p> </p>
+
+<p>If a web page appears (which is not an error): you’re vulnerable. In my case, the page contains a text that starts with: <code>Linux R7000 2.6.36.4brcmarm+ (...)</code>.</p>
+
+<h4>Step 2: terminate the web server process on your router</h4>
+<p>This is when you actually need to exploit the vulnerability in the router to simply terminate the web server process (which facilitates the remote vulnerability) on the router. Point your browser to the following URL:</p>
+
+<center>
+<code>http://[router-address]/cgi-bin/;killall$IFS'httpd'</code><br />
+(For most people, this URL will work: <a href="http://www.routerlogin.net/cgi-bin/;killall$IFS'httpd'" target="_blank">http://www.routerlogin.net/cgi-bin/;killall$IFS'httpd'</a>)
+</center>
+<p> </p>
+
+<p>This will very likely give you a ‘web server not available’ error, but it will have stopped (killed) the web server process. This means that it is now impossible to exploit the vulnerability. Note that it is now also impossible to use the web configuration interface of your router (until you next turn it off and on again). You can double-check whether you’re vulnerable by checking the URL in <a href="#step1">step 1</a>.</p>
+
+<p>You are now safe from the CERT VU#582384 vulnerability. But don’t forget: after turning your router off and on again (or a power cut!), the web server process will start again, and you will be vulnerable again!</p>
+
+<h2 id="coffee">Did this fix help you?</h2>
+<p>Did this fix save you from being hacked? Please consider buying me a coffee, and <a href="https://twitter.com/bas_van_schaik" target="_blank">do say hi on Twitter</a>.</p>
+
+<h2>List of affected devices</h2>
+<p>The list of affected devices seems to be growing. These are the devices I’ve heard about:</p>
+<ul>
+<li><strong>R6250</strong> (AC1600): confirmed by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R6400</strong> (AC1750): confirmed by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R6700</strong> Nighthawk (AC1750): confirmed by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R7000</strong> Nighthawk (AC1900, AC2300): confirmed (by myself and Netgear <a href="#cite3-netgear">[3]</a>)</li>
+<li><strong>R7100LG</strong> Nighthawk: confirmed by Netgear <a href="#cite3-netgear">[3]</a>)</li>
+<li><strong>R7500</strong> Nighthawk X4 (AC2350): confirmed <a href="#cite2-kalypto">[2]</a> and Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R7800</strong> Nighthawk X4S(AC2600): confirmed <a href="#cite2-kalypto">[2]</a>, <em>not</em> by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R7900</strong> Nighthawk: confirmed by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R8000</strong> Nighthawk (AC3200): confirmed by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R8500</strong> Nighthawk X8 (AC5300): confirmed <a href="#cite2-kalypto">[2]</a>, <em>not</em> by Netgear <a href="#cite3-netgear">[3]</a></li>
+<li><strong>R9000</strong> Nighthawk X10 (AD7200): confirmed <a href="#cite2-kalypto">[2]</a>, <em>not</em> by Netgear <a href="#cite3-netgear">[3]</a></li>
+</ul>
+
+<p>It appears that most custom firmwares (e.g. <a href="https://advancedtomato.com/" target="_blank">AdvancedTomato</a>) are not vulnerable. If you want to be sure: just <a href="#step1">check step 1</a>! If you have more information, please let me know in the comments below. I’ve had at least one report of a user who experienced that the French version of his firmware was unaffected (R7000, v1.0.7.2_1.1.93), but the English version was in fact vulnerable.</p>
+
+<h2>References</h2>
+<p>[1] <a id="cite1-cert" href="https://www.kb.cert.org/vuls/id/582384">Cernegie Mellon University CERT Vulnerability Notes Database: VU #582384</a>
+[2] <a id="cite2-kalypto" href="https://kalypto.org/research/netgear-vulnerability-expanded/">Kalypto (In)Security: NetGear Vulnerability Expanded</a>
+[3] <a id="cite3-netgear" href="http://kb.netgear.com/000036386/CVE-2016-582384" target="_blank">Netgear: Security Advisory for VU 582384</a> (last version seen: 13/12/2016 12:00 noon GMT)</p>
+
+<p>(I’ve closed the comments now Netgear have released a (beta) firmware to resolve this vulnerability. If you <em>really</em> need to contact me, <a href="https://twitter.com/bas_van_schaik" target="_blank">come and find me on Twitter</a>)</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/09/20/map-of-classic-vw-aircooled-specialist-garages/">
+            Map of classic VW aircooled specialist garages in the UK — constantly updated!
+            <small>20 Sep 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pwahstacktc">
+            SIGMOD 2011: A memory efficient reachability data structure through bit vector compression (PWAHStackTC)
+            <small>11 Oct 2011</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
