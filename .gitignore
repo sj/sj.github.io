@@ -1,5 +1,5 @@
 _site/**
 .bundle/**
 vendor/**
-.sasscache/*
+.sass-cache/*
 Gemfile.lock
