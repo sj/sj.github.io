@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.2'
+gem 'jekyll', '~> 3.3'
 #gem 'minima', '~> 2.0'
 gem 'jekyll-theme-lanyon', '~> 1.1'
 
