@@ -5,7 +5,7 @@ tag: research
 tag: pwahstacktc
 ---
 
-During the last year of my Utrecht master's degree, I worked on a research project at the University of Oxford with Prof. Oege de Moor. The project's aim was to efficiently compute, store, and answer reachability queries on large directed graphs. This work eventually led to a paper at ACM SIGMOD 2011, one of the largest international conferences on management of data. In this post, I will endeavour to convey the intuition behind our approach: bit vector compression using a specially designed scheme called PWAH.
+Back in 2010, I worked on a research project at the University of Oxford with Prof. Oege de Moor. The project's aim was to efficiently compute, store, and answer reachability queries on large directed graphs. This work eventually led to a paper at ACM SIGMOD 2011, one of the largest international conferences on management of data. In this post, I will endeavour to convey the intuition behind our approach: bit vector compression using a specially designed scheme called PWAH.
 
 The SIGMOD paper [<a href="#VanSchaik2011">VanSchaik2011</a>] can be downloaded from the ACM digital library (provided that you have access to that). The DOI is <a href="http://dx.doi.org/10.1145/1989323.1989419">10.1145/1989323.1989419</a>. The MSc. thesis on which this paper is based can be downloaded from the references [<a href="#VanSchaik2010">VanSchaik2010</a>]. A copy of the source code of our PWAH implementation and the implementation of Nuutila's algorithm is available on GitHub: [github.com/sj/pwahstacktc](https://github.com/sj/pwahstacktc).
 
