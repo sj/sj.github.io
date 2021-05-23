@@ -1,18 +1,9 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: About me
+permalink: /about-me/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## Hi. I'm Bas.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+I build security products at GitHub. I love data. In a previous life, I had fun with [graph algorithms](/pwahstacktc), wrote a PhD thesis on probabilistic data, and built paleolatitude.org (among other things). Sometimes I write my thoughts down here, and sometimes you'll [hear me vent anger on Twitter](https://twitter.com/bas_van_schaik).
