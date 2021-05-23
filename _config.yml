@@ -25,7 +25,7 @@ twitter_username: bas_van_schaik
 github_username:  sj
 
 # Build settings
-#markdown: kramdown
+markdown: kramdown
 theme: jekyll-theme-lanyon
 plugins:
   - jekyll-feed
