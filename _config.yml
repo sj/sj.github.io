@@ -27,8 +27,8 @@ github_username:  sj
 # Build settings
 markdown: kramdown
 
-#theme: jekyll-theme-lanyon
-remote_theme: poole/lanyon
+theme: jekyll-theme-lanyon
+
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
